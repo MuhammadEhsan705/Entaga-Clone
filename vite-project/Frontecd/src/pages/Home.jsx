@@ -47,6 +47,7 @@ import { IoRefresh } from "react-icons/io5";
 import { IoSunnySharp } from "react-icons/io5";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import thubnail from "../assets/Thumbnail-VSL-img.webp"
 import "swiper/css";
 import "swiper/css/pagination";
 import Form from './Form';
@@ -57,14 +58,12 @@ function Home() {
     const slides = [
         {
 
-            thumbnail:
-                "https://cdn-inech.nitrocdn.com/jdKghPovkzWfRohbpgAZaZYRcFhYiZiI/assets/images/optimized/rev-207de1b/enatega.com/wp-content/uploads/2025/09/Thumbnail-VSL-img.webp",
+            src:thubnail,
             video: "https://player.vimeo.com/video/1103420364?autoplay=1",
         },
         {
 
-            thumbnail:
-                "https://cdn-inech.nitrocdn.com/jdKghPovkzWfRohbpgAZaZYRcFhYiZiI/assets/images/optimized/rev-207de1b/enatega.com/wp-content/uploads/2025/09/Thumbnail-VSL-img.webp",
+            src:thubnail,
             video: "https://player.vimeo.com/video/1103420364?autoplay=1",
         },
     ];
@@ -142,7 +141,7 @@ function Home() {
                     {!play ? (
                         <div className="relative w-full max-w-2xl aspect-video">
                             <img
-                                src="https://cdn-inech.nitrocdn.com/jdKghPovkzWfRohbpgAZaZYRcFhYiZiI/assets/images/optimized/rev-207de1b/enatega.com/wp-content/uploads/2025/09/Thumbnail-VSL-img.webp"
+                                src={thubnail}
                                 alt="Video Thumbnail"
                                 className="w-full h-full object-cover rounded-2xl"
                             />
@@ -659,7 +658,7 @@ function Home() {
                                             {!play ? (
                                                 <div className="relative w-full max-w-2xl aspect-video">
                                                     <img
-                                                        src={slide.thumbnail}
+                                                        src={slide.src}
                                                         alt="Video Thumbnail"
                                                         className="w-full h-full object-cover rounded-2xl"
                                                     />
