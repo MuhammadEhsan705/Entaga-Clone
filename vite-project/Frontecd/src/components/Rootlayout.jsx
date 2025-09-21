@@ -8,11 +8,11 @@ import { IoMdClose } from "react-icons/io";
 import vector from "../assets/Vector.webp";
 
 function Rootlayout() {
-  const [open, setOpen] = useState(false); // mobile menu
-  const [dropdown, setDropdown] = useState(null); // desktop dropdown
-  const [mobileDropdown, setMobileDropdown] = useState(null); // mobile dropdown
+  const [open, setOpen] = useState(false); 
+  const [dropdown, setDropdown] = useState(null); 
+  const [mobileDropdown, setMobileDropdown] = useState(null); 
 
-  // Close menu on resize to desktop
+  
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -24,7 +24,7 @@ function Rootlayout() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
+  
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
   }, [open]);
@@ -39,16 +39,16 @@ function Rootlayout() {
 
   return (
     <>
-      {/* Navbar */}
+      
       <nav className="h-[70px] relative w-full bg-white text-gray-700 shadow-[0px_4px_25px_0px_#0000000D] z-20">
         <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
-          {/* Logo */}
+          
           <Link to="/" className="flex items-center gap-2 font-bold">
             <img src={logo} className="h-8" alt="Logo" />
             
           </Link>
 
-          {/* Desktop Menu */}
+          
           <div className="hidden md:flex flex-1 items-center justify-center">
             <ul className="flex items-center gap-6">
               {/* Case Studies */}
