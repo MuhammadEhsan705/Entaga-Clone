@@ -9,9 +9,9 @@ import { IoMdClose } from "react-icons/io";
 
 function Rootlayout() {
   const [open, setOpen] = useState(false);
-  const [dropdown, setDropdown] = useState(null); // for desktop dropdowns
-  const [caseOpen, setCaseOpen] = useState(false); // for mobile
-  const [useOpen, setUseOpen] = useState(false); // for mobile
+  const [dropdown, setDropdown] = useState(null); // desktop dropdowns
+  const [caseOpen, setCaseOpen] = useState(false); // mobile
+  const [useOpen, setUseOpen] = useState(false); // mobile
 
   useEffect(() => {
     const handleResize = () => {
@@ -33,13 +33,20 @@ function Rootlayout() {
     setDropdown(dropdown === menu ? null : menu);
   };
 
+  // 🔥 helper: closes menu after navigation
+  const handleNavClick = () => {
+    setOpen(false);
+    setCaseOpen(false);
+    setUseOpen(false);
+  };
+
   return (
     <>
       {/* Navbar */}
       <nav className="h-[70px] relative w-full bg-white text-gray-700 shadow-[0px_4px_25px_0px_#0000000D] z-20">
         <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
           {/* Logo */}
-          <Link to="/">
+          <Link to="/" onClick={handleNavClick}>
             <img src={logo} className="h-10 md:h-8" alt="Logo" />
           </Link>
 
@@ -69,6 +76,7 @@ function Rootlayout() {
                     <li>
                       <Link
                         to="/Yalla"
+                        onClick={handleNavClick}
                         className="flex items-start gap-2.5 p-3 hover:bg-gray-100 rounded-md"
                       >
                         <img className="h-6 w-6 mt-1" src={vector} alt="icon" />
@@ -83,6 +91,7 @@ function Rootlayout() {
                     <li>
                       <Link
                         to="/StylizeNOW"
+                        onClick={handleNavClick}
                         className="flex items-start gap-2.5 p-3 hover:bg-gray-100 rounded-md"
                       >
                         <img className="h-6 w-6 mt-1" src={vector} alt="icon" />
@@ -97,6 +106,7 @@ function Rootlayout() {
                     <li>
                       <Link
                         to="/EasyEats"
+                        onClick={handleNavClick}
                         className="flex items-start gap-2.5 p-3 hover:bg-gray-100 rounded-md"
                       >
                         <img className="h-6 w-6 mt-1" src={vector} alt="icon" />
@@ -135,6 +145,7 @@ function Rootlayout() {
                     <li>
                       <Link
                         to="/gift"
+                        onClick={handleNavClick}
                         className="flex items-start gap-2.5 p-3 hover:bg-gray-100 rounded-md"
                       >
                         <img className="h-6 w-6 mt-1" src={vector} alt="icon" />
@@ -146,6 +157,7 @@ function Rootlayout() {
                     <li>
                       <Link
                         to="/liquor"
+                        onClick={handleNavClick}
                         className="flex items-start gap-2.5 p-3 hover:bg-gray-100 rounded-md"
                       >
                         <img className="h-6 w-6 mt-1" src={vector} alt="icon" />
@@ -159,6 +171,7 @@ function Rootlayout() {
                     <li>
                       <Link
                         to="/laundry"
+                        onClick={handleNavClick}
                         className="flex items-start gap-2.5 p-3 hover:bg-gray-100 rounded-md"
                       >
                         <img className="h-6 w-6 mt-1" src={vector} alt="icon" />
@@ -170,6 +183,7 @@ function Rootlayout() {
                     <li>
                       <Link
                         to="/Milkdelivery"
+                        onClick={handleNavClick}
                         className="flex items-start gap-2.5 p-3 hover:bg-gray-100 rounded-md"
                       >
                         <img className="h-6 w-6 mt-1" src={vector} alt="icon" />
@@ -183,6 +197,7 @@ function Rootlayout() {
                     <li>
                       <Link
                         to="/courier"
+                        onClick={handleNavClick}
                         className="flex items-start gap-2.5 p-3 hover:bg-gray-100 rounded-md"
                       >
                         <img className="h-6 w-6 mt-1" src={vector} alt="icon" />
@@ -194,6 +209,7 @@ function Rootlayout() {
                     <li>
                       <Link
                         to="/grocery"
+                        onClick={handleNavClick}
                         className="flex items-start gap-2.5 p-3 hover:bg-gray-100 rounded-md"
                       >
                         <img className="h-6 w-6 mt-1" src={vector} alt="icon" />
@@ -209,6 +225,7 @@ function Rootlayout() {
               <li>
                 <Link
                   to="/documentation"
+                  onClick={handleNavClick}
                   className="hover:text-gray-500/80 transition"
                 >
                   Documentation
@@ -217,6 +234,7 @@ function Rootlayout() {
               <li>
                 <Link
                   to="/features"
+                  onClick={handleNavClick}
                   className="hover:text-gray-500/80 transition"
                 >
                   Features
@@ -225,6 +243,7 @@ function Rootlayout() {
               <li>
                 <Link
                   to="/pricing"
+                  onClick={handleNavClick}
                   className="hover:text-gray-500/80 transition"
                 >
                   Pricing
@@ -272,17 +291,29 @@ function Rootlayout() {
             {caseOpen && (
               <ul className="pl-4 mt-2 space-y-2">
                 <li>
-                  <Link to="/Yalla" className="block hover:text-gray-500">
+                  <Link
+                    to="/Yalla"
+                    onClick={handleNavClick}
+                    className="block hover:text-gray-500"
+                  >
                     Yalla Delivery
                   </Link>
                 </li>
                 <li>
-                  <Link to="/StylizeNOW" className="block hover:text-gray-500">
+                  <Link
+                    to="/StylizeNOW"
+                    onClick={handleNavClick}
+                    className="block hover:text-gray-500"
+                  >
                     StylizeNOW
                   </Link>
                 </li>
                 <li>
-                  <Link to="/EasyEats" className="block hover:text-gray-500">
+                  <Link
+                    to="/EasyEats"
+                    onClick={handleNavClick}
+                    className="block hover:text-gray-500"
+                  >
                     Easy Eats
                   </Link>
                 </li>
@@ -306,32 +337,32 @@ function Rootlayout() {
             {useOpen && (
               <ul className="pl-4 mt-2 space-y-2">
                 <li>
-                  <Link to="/gift" className="block hover:text-gray-500">
+                  <Link to="/gift" onClick={handleNavClick} className="block hover:text-gray-500">
                     Gift Delivery
                   </Link>
                 </li>
                 <li>
-                  <Link to="/liquor" className="block hover:text-gray-500">
+                  <Link to="/liquor" onClick={handleNavClick} className="block hover:text-gray-500">
                     Liquor Delivery
                   </Link>
                 </li>
                 <li>
-                  <Link to="/laundry" className="block hover:text-gray-500">
+                  <Link to="/laundry" onClick={handleNavClick} className="block hover:text-gray-500">
                     Laundry Services
                   </Link>
                 </li>
                 <li>
-                  <Link to="/Milkdelivery" className="block hover:text-gray-500">
+                  <Link to="/Milkdelivery" onClick={handleNavClick} className="block hover:text-gray-500">
                     Milk Delivery
                   </Link>
                 </li>
                 <li>
-                  <Link to="/courier" className="block hover:text-gray-500">
+                  <Link to="/courier" onClick={handleNavClick} className="block hover:text-gray-500">
                     Courier Delivery
                   </Link>
                 </li>
                 <li>
-                  <Link to="/grocery" className="block hover:text-gray-500">
+                  <Link to="/grocery" onClick={handleNavClick} className="block hover:text-gray-500">
                     Grocery Delivery
                   </Link>
                 </li>
@@ -340,22 +371,24 @@ function Rootlayout() {
           </li>
 
           <li>
-            <Link to="/documentation" className="block hover:text-gray-500">
+            <Link to="/documentation" onClick={handleNavClick} className="block hover:text-gray-500">
               Documentation
             </Link>
           </li>
           <li>
-            <Link to="/features" className="block hover:text-gray-500">
+            <Link to="/features" onClick={handleNavClick} className="block hover:text-gray-500">
               Features
             </Link>
           </li>
           <li>
-            <Link to="/pricing" className="block hover:text-gray-500">
+            <Link to="/pricing" onClick={handleNavClick} className="block hover:text-gray-500">
               Pricing
             </Link>
           </li>
           <li>
-            <Button />
+            <div onClick={handleNavClick}>
+              <Button />
+            </div>
           </li>
         </ul>
       </div>
