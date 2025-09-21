@@ -188,7 +188,7 @@ function Rootlayout() {
       {open && (
         <div className="fixed inset-0 bg-black/40 z-50">
           <div className="bg-white w-80 h-full p-6 flex flex-col gap-6">
-            {/* Logo + Close */}
+            
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 font-bold">
                 <img src={logo} alt="Logo" className="h-8" />
