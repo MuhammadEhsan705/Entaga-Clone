@@ -13,7 +13,6 @@ function Rootlayout() {
   const [caseOpen, setCaseOpen] = useState(false); // for mobile
   const [useOpen, setUseOpen] = useState(false); // for mobile
 
-  
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -238,7 +237,7 @@ function Rootlayout() {
             <Button />
           </div>
 
-      
+          {/* Mobile Menu Button */}
           <button
             aria-label="menu-btn"
             type="button"
@@ -248,11 +247,119 @@ function Rootlayout() {
             {open ? <IoMdClose size={22} /> : <FaBars size={22} />}
           </button>
         </div>
-
-       
       </nav>
 
-    
+      {/* Mobile Menu */}
+      <div
+        className={`fixed top-[70px] left-0 w-full bg-white shadow-lg z-40 transition-transform duration-300 md:hidden ${
+          open ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
+        <ul className="flex flex-col gap-4 p-6">
+          {/* Case Studies */}
+          <li>
+            <button
+              onClick={() => setCaseOpen(!caseOpen)}
+              className="flex items-center justify-between w-full text-left font-medium"
+            >
+              Case Studies
+              <IoIosArrowDown
+                className={`transition-transform ${
+                  caseOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+            {caseOpen && (
+              <ul className="pl-4 mt-2 space-y-2">
+                <li>
+                  <Link to="/Yalla" className="block hover:text-gray-500">
+                    Yalla Delivery
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/StylizeNOW" className="block hover:text-gray-500">
+                    StylizeNOW
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/EasyEats" className="block hover:text-gray-500">
+                    Easy Eats
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </li>
+
+          {/* Use Cases */}
+          <li>
+            <button
+              onClick={() => setUseOpen(!useOpen)}
+              className="flex items-center justify-between w-full text-left font-medium"
+            >
+              Use Cases
+              <IoIosArrowDown
+                className={`transition-transform ${
+                  useOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+            {useOpen && (
+              <ul className="pl-4 mt-2 space-y-2">
+                <li>
+                  <Link to="/gift" className="block hover:text-gray-500">
+                    Gift Delivery
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/liquor" className="block hover:text-gray-500">
+                    Liquor Delivery
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/laundry" className="block hover:text-gray-500">
+                    Laundry Services
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/Milkdelivery" className="block hover:text-gray-500">
+                    Milk Delivery
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/courier" className="block hover:text-gray-500">
+                    Courier Delivery
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/grocery" className="block hover:text-gray-500">
+                    Grocery Delivery
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </li>
+
+          <li>
+            <Link to="/documentation" className="block hover:text-gray-500">
+              Documentation
+            </Link>
+          </li>
+          <li>
+            <Link to="/features" className="block hover:text-gray-500">
+              Features
+            </Link>
+          </li>
+          <li>
+            <Link to="/pricing" className="block hover:text-gray-500">
+              Pricing
+            </Link>
+          </li>
+          <li>
+            <Button />
+          </li>
+        </ul>
+      </div>
+
       <div className="w-full">
         <Outlet />
       </div>
