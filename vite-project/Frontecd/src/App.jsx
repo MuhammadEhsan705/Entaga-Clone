@@ -5,6 +5,7 @@ import Schedulecall from "./pages/Schedulecall";
 import Form from "./pages/Form";
 import Yalladeliver from "./pages/Yalladeliver";
 import MalikDelivery from "./pages/MalikDelivery";
+import Documentaion from "./pages/Documentaion";
 
 function App() {
   const router = (createBrowserRouter(createRoutesFromElements
@@ -14,6 +15,7 @@ function App() {
       <Route path="/form" element={<Form/>} />
       <Route path="/Yalla" element={<Yalladeliver />} />
       <Route path="/Milkdelivery" element={<MalikDelivery />} />
+      <Route path="/Documentaion" element={<Documentaion  />} />
 
     </Route>)));
   return (

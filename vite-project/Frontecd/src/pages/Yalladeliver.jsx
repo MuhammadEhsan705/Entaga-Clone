@@ -6,29 +6,11 @@ import rider from "../assets/rider-app-323x0.webp"
 import yallaapp from "../assets/yalla-app-2-360x0.webp"
 import webapp from "../assets/Web-app-323x0.webp"
 import Footer from '../components/Footer';
+import video1 from "../assets/Videos/yalla-delivery-1.webm"
+import video2 from "../assets/Videos/yalla-delivery-2.mp4"
+import video3 from "../assets/Videos/yalla-delivery-3.webm"
 function Yalladeliver() {
-    const showcaseTabs = [
-        {
-          id: 1,
-          title: "Video 1",
-          url: "https://your-project.supabase.co/storage/v1/object/public/showcase/image1.png",
-        },
-        {
-          id: 2,
-          title: "Video 2",
-          url: "https://your-project.supabase.co/storage/v1/object/public/showcase/image2.png",
-        },
-        {
-          id: 3,
-          title: "Video 3",
-          url: "https://your-project.supabase.co/storage/v1/object/public/showcase/image3.png",
-        },
-        {
-          id: 4,
-          title: "Video 4",
-          url: "https://your-project.supabase.co/storage/v1/object/public/showcase/image4.png",
-        },
-      ];
+
     const [activeTab, setActiveTab] = useState(1);
     return (
         <>
@@ -302,7 +284,6 @@ function Yalladeliver() {
                 </div>
             </section>
             <section className="w-full py-16 px-6 md:px-12 bg-white text-center">
-
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                     Client Showcase:{" "}
                     <span className="text-purple-600">See Yalla In Action</span>
@@ -312,40 +293,59 @@ function Yalladeliver() {
                     real-world product footage. Swipe through the carousel below to view:
                 </p>
 
+                {/* Tabs */}
+                <div className="mt-10">
+                    <div className="flex justify-center space-x-8 ">
+                        {["Video 1", "Video 2", "Video 3"].map((tab, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setActiveTab(index + 1)}
+                                className={`pb-2 ${activeTab === index + 1
+                                        ? "text-purple-600 border-b-2 border-purple-600 font-semibold"
+                                        : "text-gray-700"
+                                    }`}
+                            >
+                                {tab}
+                            </button>
+                        ))}
+                    </div>
 
-                <div className="mt-6 flex justify-center gap-8 border-b border-gray-200">
-                    {showcaseTabs.map((tab) => (
-                        <button
-                            key={tab.id}
-                            onClick={() => setActiveTab(tab.id)}
-                            className={`pb-2 text-sm md:text-base font-medium transition-all ${activeTab === tab.id
-                                    ? "text-purple-600 border-b-2 border-purple-600"
-                                    : "text-gray-600 hover:text-purple-600"
-                                }`}
-                        >
-                            {tab.title}
-                        </button>
-                    ))}
-                </div>
-
-                {/* Image Display */}
-                <div className="mt-10 flex justify-center">
-                    <img
-                        src={showcaseTabs.find((tab) => tab.id === activeTab)?.url}
-                        alt="Yalla Showcase"
-                        className="w-full max-w-2xl rounded-lg shadow-lg"
-                    />
+                    {/* Video Preview */}
+                    <div className="mt-8 flex justify-center">
+                        {activeTab === 1 && (
+                            <video
+                                src={video1}
+                                controls
+                                className="rounded-xl shadow-lg max-h-[500px]"
+                            />
+                        )}
+                        {activeTab === 2 && (
+                            <video
+                                src={video2}
+                                controls
+                                className="rounded-xl shadow-lg max-h-[500px]"
+                            />
+                        )}
+                        {activeTab === 3 && (
+                            <video
+                                src={video3}
+                                controls
+                                className="rounded-xl shadow-lg max-h-[500px]"
+                            />
+                        )}
+                    </div>
                 </div>
             </section>
+
             <section className="w-full py-16 px-6 md:px-12 bg-white">
                 <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center text-center md:text-left">
 
                     <div>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                        Looking Ahead:<span className="text-purple-600">Scaling Up and Reaching Further</span>
+                            Looking Ahead:<span className="text-purple-600">Scaling Up and Reaching Further</span>
                         </h2>
                         <p className="mt-4 text-gray-600 leading-relaxed">
-                        With a strong foundation in place, Yalla is not slowing down. The roadmap includes:
+                            With a strong foundation in place, Yalla is not slowing down. The roadmap includes:
 
 
                         </p>
@@ -354,33 +354,33 @@ function Yalladeliver() {
                             <li className="flex items-start space-x-3">
                                 <CheckCircle2 className="w-6 h-6 text-purple-500 mt-1" />
                                 <span className="text-gray-800 font-semibold">
-                                Expanding to more cities and restaurant partners
+                                    Expanding to more cities and restaurant partners
                                 </span>
                             </li>
                             <li className="flex items-start space-x-3">
                                 <CheckCircle2 className="w-6 h-6 text-purple-500 mt-1" />
                                 <span className="text-gray-800 font-semibold">
-                                Onboarding retail and pharmacy partners{" "}
+                                    Onboarding retail and pharmacy partners{" "}
                                     <span className="font-normal">onboarded</span>
                                 </span>
                             </li>
                             <li className="flex items-start space-x-3">
                                 <CheckCircle2 className="w-6 h-6 text-purple-500 mt-1" />
                                 <span className="text-gray-800">
-                                Enhancing loyalty programs and in-app promotions
+                                    Enhancing loyalty programs and in-app promotions
                                 </span>
                             </li>
                             <li className="flex items-start space-x-3">
                                 <CheckCircle2 className="w-6 h-6 text-purple-500 mt-1" />
                                 <span className="text-gray-800">
-                                Further optimizing performance for low-bandwidth regions
+                                    Further optimizing performance for low-bandwidth regions
                                 </span>
                             </li>
                         </ul>
 
                         <p className="mt-6 text-gray-600 leading-relaxed">
-                        Yalla’s success is a testament to what’s possible with a clear vision, strong technology, and the right development team.
-                        So are you ready to take your delivery business to the next level? Get started with us today so that we can discuss your future!
+                            Yalla’s success is a testament to what’s possible with a clear vision, strong technology, and the right development team.
+                            So are you ready to take your delivery business to the next level? Get started with us today so that we can discuss your future!
                         </p>
                     </div>
 
@@ -394,7 +394,7 @@ function Yalladeliver() {
                     </div>
                 </div>
             </section>
-            <Footer/>
+            <Footer />
 
         </>
     );

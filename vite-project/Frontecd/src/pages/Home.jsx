@@ -58,12 +58,12 @@ function Home() {
     const slides = [
         {
 
-            src:thubnail,
+            src: thubnail,
             video: "https://player.vimeo.com/video/1103420364?autoplay=1",
         },
         {
 
-            src:thubnail,
+            src: thubnail,
             video: "https://player.vimeo.com/video/1103420364?autoplay=1",
         },
     ];
@@ -175,8 +175,9 @@ function Home() {
                 <div className="flex flex-col items-center justify-center h-full text-center space-y-3">
                     <motion.h1
                         initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
+                        whileInView={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         className="text-4xl font-bold"
                     >
                         Check out products powered by Enatega
@@ -184,8 +185,9 @@ function Home() {
 
                     <motion.span
                         initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
+                        whileInView={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.6 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         className="text-gray-600"
                     >
                         For more info, Schedule a call with us
@@ -248,17 +250,20 @@ function Home() {
                 <div className="flex flex-col items-center justify-center h-full text-center space-y-3">
                     <motion.h1
                         initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
+                        whileInView={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         className="text-4xl font-bold"
                     >
                         Check Out Our Live Demos
                     </motion.h1>
 
+
                     <motion.span
                         initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.6 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         className="text-gray-600"
                     >
                         Preview the complete delivery experience — Customer, Vendor, Rider & Admin in action!
@@ -352,8 +357,9 @@ function Home() {
                     <h1 className="text-blue-800 flex items-center">Use Cases</h1>
                     <motion.h1
                         initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
+                        whileInView={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         className="text-4xl font-bold"
                     >
                         Beyond Delivery: A Smarter Way to Serve
@@ -361,8 +367,9 @@ function Home() {
 
                     <motion.span
                         initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.6 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         className="text-gray-600"
                     >
                         More than just a food delivery platform
@@ -437,9 +444,12 @@ function Home() {
                     </div>
 
                     {/* Right side  */}
-                    <motion.div initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.3 }} className="md:w-1/2 space-y-4 text-gray-700">
+                    <motion.div
+                        initial={{ y: 40, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        className="md:w-1/2 space-y-4 text-gray-700">
 
                         <h2 className="text-3xl font-bold">Who’s It For?</h2>
 
@@ -515,7 +525,7 @@ function Home() {
 
                 </div>
             </section>
-            <section className="who-is-it-for mt-56 px-6">
+            <section className=" mt-56 px-6">
                 <span className=" flex  justify-center items-center">
                     <FiRefreshCcw className="text-purple-500 " />
                 </span>
@@ -528,9 +538,12 @@ function Home() {
                     </div>
 
                     {/* Right side  */}
-                    <motion.div initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.3 }} className="md:w-1/2 space-y-4 text-gray-700">
+                    <motion.div
+                        initial={{ y: 40, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        className="md:w-1/2 space-y-4 text-gray-700">
 
                         <h2 className="text-3xl font-bold">Enjoy Free Lifetime Updates</h2>
                         <p>Enatega’s frontend is fully open source, giving you the ability to track real-time updates and address any issues with complete transparency. Our backend, though proprietary, is shared with you during every new release, ensuring your system remains updated with the latest technologies for android and iOS app development.</p>
@@ -551,8 +564,9 @@ function Home() {
                     <h1 className="text-blue-800 flex items-center">Features</h1>
                     <motion.h1
                         initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
+                        whileInView={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         className="text-4xl font-bold"
                     >
                         What's included? Absolutely everything.
@@ -560,8 +574,9 @@ function Home() {
 
                     <motion.span
                         initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.6 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         className="text-gray-600"
                     >
                         Absolutely everything you need to get a fast and efficient delivery business off the ground!
@@ -625,8 +640,9 @@ function Home() {
                     <h1 className="text-blue-800 flex items-center">Testimonials</h1>
                     <motion.h1
                         initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
+                        whileInView={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         className="text-4xl font-bold"
                     >
                         Reviews from our Customer
@@ -634,8 +650,9 @@ function Home() {
 
                     <motion.span
                         initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.6 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         className="text-gray-600"
                     >
                         Hear what our happy customers are saying about Enatega!
@@ -697,8 +714,9 @@ function Home() {
                     <h1 className="text-blue-800 flex items-center">Pricing</h1>
                     <motion.h1
                         initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
+                        whileInView={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         className="text-4xl font-bold"
                     >
                         Transparent, Flexible Pricing
@@ -706,8 +724,9 @@ function Home() {
 
                     <motion.span
                         initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.6 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         className="text-gray-600 flex flex-col text-wrap"
                     >
                         Enatega has a simple pricing model. No recurring subscriptions and no additional charges on delivery. <span className="text-blue-800 ">Just pay once</span>  and get the whole solution, no strings attached.
@@ -748,13 +767,16 @@ function Home() {
                                 ))}
                             </ul>
                             <div className="mt-6 flex flex-col gap-3">
-                                <button className="bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700">
+                                <button className="bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700"><Link to="/form" >
                                     Get A Quote
-                                </button>
+                                </Link></button>
                                 <div className="flex justify-between">
-                                    <Link><button className="border px-4 py-2 rounded-lg hover:bg-gray-100">
-                                        View Demo
-                                    </button> </Link>
+                                    <HashLink to="/#ouerdemo" className="border px-4 py-2 rounded-lg hover:bg-gray-100">
+
+                                    View Demo
+                                    </HashLink >
+                                   
+
                                     <button className="border px-4 py-2 rounded-lg hover:bg-gray-100">
                                         View GitHub Repo
                                     </button>
@@ -791,9 +813,9 @@ function Home() {
                                 ))}
                             </ul>
                             <div className="mt-36 flex flex-col gap-3">
-                                <button className="bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700">
+                            <button className="bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700"><Link to="/form" >
                                     Get A Quote
-                                </button>
+                                </Link></button>
                                 <button className="bg-white text-purple-900 py-2 rounded-lg hover:bg-gray-200">
                                     Visit NinjasCode
                                 </button>
@@ -803,11 +825,11 @@ function Home() {
                 </div>
 
             </section>
-            <Form/>
-            
-            
+            <Form />
 
-              <Footer/>
+
+
+            <Footer />
 
 
 

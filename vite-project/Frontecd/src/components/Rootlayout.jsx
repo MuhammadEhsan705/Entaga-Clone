@@ -8,11 +8,11 @@ import { IoMdClose } from "react-icons/io";
 import vector from "../assets/Vector.webp";
 
 function Rootlayout() {
-  const [open, setOpen] = useState(false); 
-  const [dropdown, setDropdown] = useState(null); 
-  const [mobileDropdown, setMobileDropdown] = useState(null); 
+  const [open, setOpen] = useState(false);
+  const [dropdown, setDropdown] = useState(null);
+  const [mobileDropdown, setMobileDropdown] = useState(null);
 
-  
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -24,14 +24,16 @@ function Rootlayout() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  
+
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
   }, [open]);
 
+
   const toggleDropdown = (menu) => {
     setDropdown(dropdown === menu ? null : menu);
   };
+
 
   const toggleMobileDropdown = (menu) => {
     setMobileDropdown(mobileDropdown === menu ? null : menu);
@@ -39,19 +41,24 @@ function Rootlayout() {
 
   return (
     <>
-      
-      <nav className="h-[70px] relative w-full bg-white text-gray-700 shadow-[0px_4px_25px_0px_#0000000D] z-20">
-        <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
-          
+
+      <nav className="relative w-full bg-white text-gray-700 shadow-[0px_4px_25px_0px_#0000000D] z-20">
+        <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4 min-h-[70px]">
+          {/* Logo */}
           <Link to="/" className="flex items-center gap-2 font-bold">
             <img src={logo} className="h-8" alt="Logo" />
-            
           </Link>
 
-          
+
           <div className="hidden md:flex flex-1 items-center justify-center">
-            <ul className="flex items-center gap-6">
-              {/* Case Studies */}
+            <ul
+              className="
+                flex flex-wrap gap-6 items-center
+                md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-4
+                lg:flex lg:flex-nowrap lg:gap-8
+              "
+            >
+
               <li className="relative">
                 <button
                   onClick={() => toggleDropdown("case")}
@@ -59,9 +66,8 @@ function Rootlayout() {
                 >
                   Case Studies
                   <IoIosArrowDown
-                    className={`transition-transform ${
-                      dropdown === "case" ? "rotate-180" : ""
-                    }`}
+                    className={`transition-transform ${dropdown === "case" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {dropdown === "case" && (
@@ -70,6 +76,7 @@ function Rootlayout() {
                       <li>
                         <Link
                           to="/Yalla"
+                          onClick={() => setDropdown(null)}
                           className="flex items-start gap-2.5 p-3 hover:bg-gray-100 rounded-md"
                         >
                           <img className="h-6 w-6 mt-1" src={vector} alt="icon" />
@@ -81,20 +88,7 @@ function Rootlayout() {
                           </div>
                         </Link>
                       </li>
-                      <li>
-                        <Link
-                          to="/StylizeNOW"
-                          className="flex items-start gap-2.5 p-3 hover:bg-gray-100 rounded-md"
-                        >
-                          <img className="h-6 w-6 mt-1" src={vector} alt="icon" />
-                          <div>
-                            <p className="font-semibold text-sm">StylizeNOW</p>
-                            <p className="text-xs text-gray-500">
-                              On-demand mobile hair services
-                            </p>
-                          </div>
-                        </Link>
-                      </li>
+
                     </ul>
                   </div>
                 )}
@@ -108,73 +102,72 @@ function Rootlayout() {
                 >
                   Use Cases
                   <IoIosArrowDown
-                    className={`transition-transform ${
-                      dropdown === "use" ? "rotate-180" : ""
-                    }`}
+                    className={`transition-transform ${dropdown === "use" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {dropdown === "use" && (
-                  <div className="absolute left-0 mt-4 bg-white shadow-lg rounded-md w-[600px] grid grid-cols-2 gap-6 p-4 z-50">
+                  <div className="absolute left-0 mt-4 bg-white shadow-lg rounded-md w-[600px] max-w-[90vw] grid grid-cols-2 gap-6 p-4 z-50">
                     <Link
-                      to="/gift"
+                      to="/Milkdelivery"
+                      onClick={() => setDropdown(null)}
                       className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded"
                     >
                       <img src={vector} alt="icon" className="h-6 w-6" />
-                      Gift Delivery Solution
+                      Milk Delivery Solution
                     </Link>
-                    <Link
-                      to="/liquor"
-                      className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded"
-                    >
-                      <img src={vector} alt="icon" className="h-6 w-6" />
-                      Liquor Delivery Solution
-                    </Link>
-                    <Link
-                      to="/laundry"
-                      className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded"
-                    >
-                      <img src={vector} alt="icon" className="h-6 w-6" />
-                      Laundry On-Demand Services
-                    </Link>
-                    <Link
-                      to="/grocery"
-                      className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded"
-                    >
-                      <img src={vector} alt="icon" className="h-6 w-6" />
-                      Grocery Delivery Solution
-                    </Link>
+
                   </div>
                 )}
               </li>
 
+              {/* Normal Links */}
               <li>
-                <Link to="/documentation" className="hover:text-gray-500/80">
+                <Link
+                  to="/Documentaion"
+                  onClick={() => setDropdown(null)}
+                  className="hover:text-gray-500/80"
+                >
                   Documentation
                 </Link>
               </li>
+
               <li>
-                <Link to="/blog" className="hover:text-gray-500/80">
+                <Link
+                  to="/blog"
+                  onClick={() => setDropdown(null)}
+                  className="hover:text-gray-500/80"
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/features" className="hover:text-gray-500/80">
+                <Link
+                  to="/features"
+                  onClick={() => setDropdown(null)}
+                  className="hover:text-gray-500/80"
+                >
                   Features
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="hover:text-gray-500/80">
+                <Link
+                  to="/pricing"
+                  onClick={() => setDropdown(null)}
+                  className="hover:text-gray-500/80"
+                >
                   Pricing
                 </Link>
               </li>
             </ul>
           </div>
 
+          {/* Desktop CTA */}
           <div className="hidden md:block">
             <Button />
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Toggle */}
           <button
             onClick={() => setOpen(!open)}
             className="md:hidden text-gray-700"
@@ -184,15 +177,14 @@ function Rootlayout() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Sidebar */}
       {open && (
         <div className="fixed inset-0 bg-black/40 z-50">
           <div className="bg-white w-80 h-full p-6 flex flex-col gap-6">
-            
+            {/* Top */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 font-bold">
                 <img src={logo} alt="Logo" className="h-8" />
-              
               </div>
               <IoMdClose
                 size={22}
@@ -201,8 +193,9 @@ function Rootlayout() {
               />
             </div>
 
-            {/* Menu Items */}
+            {/* Items */}
             <ul className="flex flex-col gap-4">
+              {/* Case Studies */}
               <li>
                 <button
                   onClick={() => toggleMobileDropdown("case")}
@@ -210,30 +203,30 @@ function Rootlayout() {
                 >
                   Case Studies
                   <IoIosArrowDown
-                    className={`transition-transform ${
-                      mobileDropdown === "case" ? "rotate-180" : ""
-                    }`}
+                    className={`transition-transform ${mobileDropdown === "case" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {mobileDropdown === "case" && (
                   <ul className="ml-4 mt-2 space-y-2 text-sm">
                     <li>
-                      <Link to="/Yalla" className="block hover:text-gray-600">
+                      <Link
+                        to="/Yalla"
+                        onClick={() => {
+                          setMobileDropdown(null);
+                          setOpen(false);
+                        }}
+                        className="block hover:text-gray-600"
+                      >
                         Yalla Delivery
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        to="/StylizeNOW"
-                        className="block hover:text-gray-600"
-                      >
-                        StylizeNOW
-                      </Link>
-                    </li>
+
                   </ul>
                 )}
               </li>
 
+              {/* Use Cases */}
               <li>
                 <button
                   onClick={() => toggleMobileDropdown("use")}
@@ -241,65 +234,69 @@ function Rootlayout() {
                 >
                   Use Cases
                   <IoIosArrowDown
-                    className={`transition-transform ${
-                      mobileDropdown === "use" ? "rotate-180" : ""
-                    }`}
+                    className={`transition-transform ${mobileDropdown === "use" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {mobileDropdown === "use" && (
                   <ul className="ml-4 mt-2 space-y-2 text-sm">
                     <li>
-                      <Link to="/Milkdelivery" className="block hover:text-gray-600">
+                      <Link
+                        to="/Milkdelivery"
+                        onClick={() => {
+                          setMobileDropdown(null);
+                          setOpen(false);
+                        }}
+                        className="block hover:text-gray-600"
+                      >
                         Milk Delivery Solution
                       </Link>
                     </li>
-                    <li>
-                      <Link to="/gift" className="block hover:text-gray-600">
-                        Gift Delivery
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/liquor" className="block hover:text-gray-600">
-                        Liquor Delivery
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/laundry" className="block hover:text-gray-600">
-                        Laundry Services
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/grocery" className="block hover:text-gray-600">
-                        Grocery Delivery
-                      </Link>
-                    </li>
+
                   </ul>
                 )}
               </li>
 
+              {/* Normal Links */}
               <li>
-                <Link to="/documentation" className="font-semibold">
+                <Link
+                  to="/documentation"
+                  className="font-semibold"
+                  onClick={() => setOpen(false)}
+                >
                   Documentation
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="font-semibold">
+                <Link
+                  to="/blog"
+                  className="font-semibold"
+                  onClick={() => setOpen(false)}
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/features" className="font-semibold">
+                <Link
+                  to="/features"
+                  className="font-semibold"
+                  onClick={() => setOpen(false)}
+                >
                   Features
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="font-semibold">
+                <Link
+                  to="/pricing"
+                  className="font-semibold"
+                  onClick={() => setOpen(false)}
+                >
                   Pricing
                 </Link>
               </li>
             </ul>
 
-            {/* CTA Button */}
+
             <div className="mt-auto">
               <Button className="w-full" />
             </div>
