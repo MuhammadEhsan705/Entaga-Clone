@@ -15,8 +15,8 @@ function Rootlayout() {
   const [mobileDropdown, setMobileDropdown] = useState(null);
   const location = useLocation();
 
-  
-  
+
+
 
   // close menu on resize desktop
   useEffect(() => {
@@ -70,9 +70,8 @@ function Rootlayout() {
                 >
                   Case Studies
                   <IoIosArrowDown
-                    className={`transition-transform ${
-                      dropdown === "case" ? "rotate-180" : ""
-                    }`}
+                    className={`transition-transform ${dropdown === "case" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {dropdown === "case" && (
@@ -106,9 +105,8 @@ function Rootlayout() {
                 >
                   Use Cases
                   <IoIosArrowDown
-                    className={`transition-transform ${
-                      dropdown === "use" ? "rotate-180" : ""
-                    }`}
+                    className={`transition-transform ${dropdown === "use" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {dropdown === "use" && (
@@ -156,12 +154,13 @@ function Rootlayout() {
                 </Link>
               </li>
 
-              {/* Pricing HashLink (Fixed Nested li issue) */}
+            
               <li>
-                <Link to="/#ouerprices"
-                  className="font-semibold"
-                  onClick={() => setOpen(false)}> Pricing</Link>
-                
+                <a href="#ouerprices" className="font-semibold" onClick={() => setOpen(false)}>
+                  Pricing
+                </a>
+
+
               </li>
             </ul>
           </div>
@@ -207,9 +206,8 @@ function Rootlayout() {
                 >
                   Case Studies
                   <IoIosArrowDown
-                    className={`transition-transform ${
-                      mobileDropdown === "case" ? "rotate-180" : ""
-                    }`}
+                    className={`transition-transform ${mobileDropdown === "case" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {mobileDropdown === "case" && (
@@ -238,9 +236,8 @@ function Rootlayout() {
                 >
                   Use Cases
                   <IoIosArrowDown
-                    className={`transition-transform ${
-                      mobileDropdown === "use" ? "rotate-180" : ""
-                    }`}
+                    className={`transition-transform ${mobileDropdown === "use" ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {mobileDropdown === "use" && (
