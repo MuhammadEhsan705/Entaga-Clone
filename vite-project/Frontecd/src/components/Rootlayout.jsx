@@ -158,14 +158,10 @@ function Rootlayout() {
 
               {/* Pricing HashLink (Fixed Nested li issue) */}
               <li>
-                <HashLink
-                  smooth
-                  to="/#ouerprices"
+                <Link to="/#ouerprices"
                   className="font-semibold"
-                  onClick={() => setOpen(false)}
-                >
-                  Pricing
-                </HashLink>
+                  onClick={() => setOpen(false)}> Pricing</Link>
+                
               </li>
             </ul>
           </div>
