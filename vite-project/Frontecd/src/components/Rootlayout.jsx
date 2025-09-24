@@ -134,15 +134,7 @@ function Rootlayout() {
                 </Link>
               </li>
 
-              <li>
-                <Link
-                  to="/blog"
-                  onClick={() => setDropdown(null)}
-                  className="hover:text-gray-500/80"
-                >
-                  Blog
-                </Link>
-              </li>
+              
 
               <li>
                 <Link
