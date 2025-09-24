@@ -15,17 +15,8 @@ function Rootlayout() {
   const [mobileDropdown, setMobileDropdown] = useState(null);
   const location = useLocation();
 
-  // handle hash scroll after navigation
-  useEffect(() => {
-    if (location.hash) {
-      setTimeout(() => {
-        const element = document.querySelector(location.hash);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }, 100);
-    }
-  }, [location]);
+  
+  
 
   // close menu on resize desktop
   useEffect(() => {
@@ -39,7 +30,7 @@ function Rootlayout() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // lock body scroll when sidebar open
+
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
   }, [open]);
