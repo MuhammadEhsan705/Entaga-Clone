@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Outlet, Link } from "react-router-dom";
 import logo from "../assets/logo.webp";
 import Button from "./Button";
@@ -6,13 +7,27 @@ import { FaBars } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
 import vector from "../assets/Vector.webp";
+import { HashLink } from "react-router-hash-link";
 
 function Rootlayout() {
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState(null);
   const [mobileDropdown, setMobileDropdown] = useState(null);
+  const location = useLocation();
 
+  // handle hash scroll after navigation
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    }
+  }, [location]);
 
+  // close menu on resize desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -24,16 +39,14 @@ function Rootlayout() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-
+  // lock body scroll when sidebar open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
   }, [open]);
 
-
   const toggleDropdown = (menu) => {
     setDropdown(dropdown === menu ? null : menu);
   };
-
 
   const toggleMobileDropdown = (menu) => {
     setMobileDropdown(mobileDropdown === menu ? null : menu);
@@ -41,7 +54,7 @@ function Rootlayout() {
 
   return (
     <>
-
+      {/* Navbar */}
       <nav className="relative w-full bg-white text-gray-700 shadow-[0px_4px_25px_0px_#0000000D] z-20">
         <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4 min-h-[70px]">
           {/* Logo */}
@@ -49,7 +62,7 @@ function Rootlayout() {
             <img src={logo} className="h-8" alt="Logo" />
           </Link>
 
-
+          {/* Desktop Nav */}
           <div className="hidden md:flex flex-1 items-center justify-center">
             <ul
               className="
@@ -58,7 +71,7 @@ function Rootlayout() {
                 lg:flex lg:flex-nowrap lg:gap-8
               "
             >
-
+              {/* Case Studies */}
               <li className="relative">
                 <button
                   onClick={() => toggleDropdown("case")}
@@ -66,8 +79,9 @@ function Rootlayout() {
                 >
                   Case Studies
                   <IoIosArrowDown
-                    className={`transition-transform ${dropdown === "case" ? "rotate-180" : ""
-                      }`}
+                    className={`transition-transform ${
+                      dropdown === "case" ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {dropdown === "case" && (
@@ -88,7 +102,6 @@ function Rootlayout() {
                           </div>
                         </Link>
                       </li>
-
                     </ul>
                   </div>
                 )}
@@ -102,8 +115,9 @@ function Rootlayout() {
                 >
                   Use Cases
                   <IoIosArrowDown
-                    className={`transition-transform ${dropdown === "use" ? "rotate-180" : ""
-                      }`}
+                    className={`transition-transform ${
+                      dropdown === "use" ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {dropdown === "use" && (
@@ -116,7 +130,6 @@ function Rootlayout() {
                       <img src={vector} alt="icon" className="h-6 w-6" />
                       Milk Delivery Solution
                     </Link>
-
                   </div>
                 )}
               </li>
@@ -141,6 +154,7 @@ function Rootlayout() {
                   Blog
                 </Link>
               </li>
+
               <li>
                 <Link
                   to="/features"
@@ -150,14 +164,17 @@ function Rootlayout() {
                   Features
                 </Link>
               </li>
+
+              {/* Pricing HashLink (Fixed Nested li issue) */}
               <li>
-                <Link
-                  to="/pricing"
-                  onClick={() => setDropdown(null)}
-                  className="hover:text-gray-500/80"
+                <HashLink
+                  smooth
+                  to="/#ouerprices"
+                  className="font-semibold"
+                  onClick={() => setOpen(false)}
                 >
                   Pricing
-                </Link>
+                </HashLink>
               </li>
             </ul>
           </div>
@@ -203,8 +220,9 @@ function Rootlayout() {
                 >
                   Case Studies
                   <IoIosArrowDown
-                    className={`transition-transform ${mobileDropdown === "case" ? "rotate-180" : ""
-                      }`}
+                    className={`transition-transform ${
+                      mobileDropdown === "case" ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {mobileDropdown === "case" && (
@@ -221,7 +239,6 @@ function Rootlayout() {
                         Yalla Delivery
                       </Link>
                     </li>
-
                   </ul>
                 )}
               </li>
@@ -234,8 +251,9 @@ function Rootlayout() {
                 >
                   Use Cases
                   <IoIosArrowDown
-                    className={`transition-transform ${mobileDropdown === "use" ? "rotate-180" : ""
-                      }`}
+                    className={`transition-transform ${
+                      mobileDropdown === "use" ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {mobileDropdown === "use" && (
@@ -252,7 +270,6 @@ function Rootlayout() {
                         Milk Delivery Solution
                       </Link>
                     </li>
-
                   </ul>
                 )}
               </li>
@@ -260,22 +277,14 @@ function Rootlayout() {
               {/* Normal Links */}
               <li>
                 <Link
-                  to="/documentation"
+                  to="/Documentaion"
                   className="font-semibold"
                   onClick={() => setOpen(false)}
                 >
                   Documentation
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/blog"
-                  className="font-semibold"
-                  onClick={() => setOpen(false)}
-                >
-                  Blog
-                </Link>
-              </li>
+
               <li>
                 <Link
                   to="/features"
@@ -285,17 +294,19 @@ function Rootlayout() {
                   Features
                 </Link>
               </li>
+
+              {/* Pricing (Mobile) */}
               <li>
-                <Link
-                  to="/pricing"
+                <HashLink
+                  smooth
+                  to="/#ouerprices"
                   className="font-semibold"
                   onClick={() => setOpen(false)}
                 >
                   Pricing
-                </Link>
+                </HashLink>
               </li>
             </ul>
-
 
             <div className="mt-auto">
               <Button className="w-full" />
@@ -304,6 +315,7 @@ function Rootlayout() {
         </div>
       )}
 
+      {/* Outlet for Pages */}
       <div className="w-full">
         <Outlet />
       </div>

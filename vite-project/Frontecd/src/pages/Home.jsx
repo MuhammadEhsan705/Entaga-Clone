@@ -709,7 +709,7 @@ function Home() {
                 </div>
 
             </section>
-            <section className='Pricing mt-40'>
+            <section id='ouerprices' className='Pricing mt-40'>
                 <div className="flex flex-col items-center justify-center h-full text-center space-y-3">
                     <h1 className="text-blue-800 flex items-center">Pricing</h1>
                     <motion.h1
