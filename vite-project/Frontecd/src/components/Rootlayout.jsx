@@ -151,9 +151,7 @@ function Rootlayout() {
                 <a href="#ouerprices" className="font-semibold" onClick={() => setOpen(false)}>
                   Pricing
                 </a>
-
-
-              </li>
+                 </li>
             </ul>
           </div>
 
@@ -273,15 +271,10 @@ function Rootlayout() {
 
               {/* Pricing (Mobile) */}
               <li>
-                <HashLink
-                  smooth
-                  to="/#ouerprices"
-                  className="font-semibold"
-                  onClick={() => setOpen(false)}
-                >
+                <a href="#ouerprices" className="font-semibold" onClick={() => setOpen(false)}>
                   Pricing
-                </HashLink>
-              </li>
+                </a>
+                 </li>
             </ul>
 
             <div className="mt-auto">
