@@ -7,7 +7,7 @@ import { FaBars } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
 import vector from "../assets/Vector.webp";
-import { HashLink } from "react-router-hash-link";
+
 
 function Rootlayout() {
   const [open, setOpen] = useState(false);
@@ -18,7 +18,7 @@ function Rootlayout() {
 
 
 
-  // close menu on resize desktop
+  
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -248,7 +248,7 @@ function Rootlayout() {
                 )}
               </li>
 
-              {/* Normal Links */}
+          
               <li>
                 <Link
                   to="/Documentaion"
@@ -269,7 +269,7 @@ function Rootlayout() {
                 </Link>
               </li>
 
-              {/* Pricing (Mobile) */}
+              
               <li>
                 <a href="#ouerprices" className="font-semibold" onClick={() => setOpen(false)}>
                   Pricing
@@ -284,7 +284,7 @@ function Rootlayout() {
         </div>
       )}
 
-      {/* Outlet for Pages */}
+    
       <div className="w-full">
         <Outlet />
       </div>
