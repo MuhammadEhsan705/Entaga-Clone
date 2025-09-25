@@ -18,15 +18,15 @@ function AdminDashboard() {
   ];
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex flex-col md:flex-row min-h-screen bg-gray-50">
       {/* Sidebar */}
-      <aside className="w-64 bg-white border-r p-6">
-        <nav className="space-y-4 text-sm font-medium text-gray-700">
+      <aside className="w-full md:w-64 bg-white border-b md:border-r p-4 md:p-6">
+        <nav className="grid grid-cols-2 gap-2 md:block md:space-y-4 text-sm font-medium text-gray-700">
           {menuItems.map((item) => (
             <button
               key={item}
               onClick={() => setActiveTab(item)}
-              className={`block text-left w-full ${
+              className={`text-left w-full ${
                 activeTab === item
                   ? "text-black font-semibold"
                   : "hover:text-black"
@@ -39,19 +39,19 @@ function AdminDashboard() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-12">
-        <div className="bg-white rounded-xl shadow-lg p-12 space-y-12">
+      <main className="flex-1 p-4 sm:p-6 lg:p-10">
+        <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 lg:p-12 space-y-8">
           {/* Role-Based Administration */}
           {activeTab === "Role-Based Administration" && (
             <section>
               <h2 className="text-xl font-bold text-gray-900 mb-4">
                 • Role-Based Administration
               </h2>
-              <div className="mt-8 flex justify-center">
+              <div className="mt-6 flex justify-center">
                 <img
                   src={rolebase}
                   alt="Role-Based Administration"
-                  className="w-[500px] md:w-[650px] rounded-2xl shadow-xl"
+                  className="w-full max-w-[650px] rounded-2xl shadow-xl"
                 />
               </div>
               <p className="mt-6 text-gray-600 text-base leading-relaxed">
@@ -73,11 +73,11 @@ function AdminDashboard() {
               <h2 className="text-xl font-bold text-gray-900 mb-6">
                 • User Management
               </h2>
-              <div className="mt-8 flex justify-center">
+              <div className="mt-6 flex justify-center">
                 <img
                   src={usermanag}
                   alt="User Management"
-                  className="w-[500px] md:w-[650px] rounded-2xl shadow-xl"
+                  className="w-full max-w-[650px] rounded-2xl shadow-xl"
                 />
               </div>
               <p className="mt-6 text-gray-600 text-base leading-relaxed">
@@ -138,7 +138,7 @@ function AdminDashboard() {
             </section>
           )}
 
-          {/* Other Tabs (placeholders for now) */}
+          
           {[
             "User & Role Oversight",
             "Establishment Management",
